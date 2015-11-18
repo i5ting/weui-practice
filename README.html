@@ -1,0 +1,756 @@
+
+	    <html>
+	      <head>
+				  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	        <title>README</title>
+					
+					<link href="toc/style/github-bf51422f4bb36427d391e4b75a1daa083c2d840e.css" media="all" rel="stylesheet" type="text/css"/>
+					<link href="toc/style/github2-d731afd4f624c99a4b19ad69f3083cd6d02b81d5.css" media="all" rel="stylesheet" type="text/css"/>
+					<link href="toc/css/zTreeStyle/zTreeStyle.css" media="all" rel="stylesheet" type="text/css"/>
+			
+				  <style>
+					pre {
+					    counter-reset: line-numbering;
+					    border: solid 1px #d9d9d9;
+					    border-radius: 0;
+					    background: #fff;
+					    padding: 0;
+					    line-height: 23px;
+					    margin-bottom: 30px;
+					    white-space: pre;
+					    overflow-x: auto;
+					    word-break: inherit;
+					    word-wrap: inherit;
+					}
+
+					pre a::before {
+					  content: counter(line-numbering);
+					  counter-increment: line-numbering;
+					  padding-right: 1em; /* space after numbers */
+					  width: 25px;
+					  text-align: right;
+					  opacity: 0.7;
+					  display: inline-block;
+					  color: #aaa;
+					  background: #eee;
+					  margin-right: 16px;
+					  padding: 2px 10px;
+					  font-size: 13px;
+					  -webkit-touch-callout: none;
+					  -webkit-user-select: none;
+					  -khtml-user-select: none;
+					  -moz-user-select: none;
+					  -ms-user-select: none;
+					  user-select: none;
+					}
+
+					pre a:first-of-type::before {
+					  padding-top: 10px;
+					}
+
+					pre a:last-of-type::before {
+					  padding-bottom: 10px;
+					}
+
+					pre a:only-of-type::before {
+					  padding: 10px;
+					}
+			
+					.highlight { background-color: #ffffcc } /* RIGHT */
+					</style>
+	      </head>
+	      <body>
+				  <div>
+							<div style='width:25%;'>
+									<ul id="tree" class="ztree" style='width:100%'>
+		
+									</ul>
+							</div>
+			        <div id='readme' style='width:70%;margin-left:20%;'>
+			          	<article class='markdown-body'>
+			            	<style>.highlight .hll { background-color: #ffffcc }
+.highlight  { background: #f0f0f0; }
+.highlight .c { color: #60a0b0; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #007020; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .cm { color: #60a0b0; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #007020 } /* Comment.Preproc */
+.highlight .c1 { color: #60a0b0; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #60a0b0; background-color: #fff0f0 } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #FF0000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #00A000 } /* Generic.Inserted */
+.highlight .go { color: #888888 } /* Generic.Output */
+.highlight .gp { color: #c65d09; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0044DD } /* Generic.Traceback */
+.highlight .kc { color: #007020; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #007020; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #007020; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #007020 } /* Keyword.Pseudo */
+.highlight .kr { color: #007020; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #902000 } /* Keyword.Type */
+.highlight .m { color: #40a070 } /* Literal.Number */
+.highlight .s { color: #4070a0 } /* Literal.String */
+.highlight .na { color: #4070a0 } /* Name.Attribute */
+.highlight .nb { color: #007020 } /* Name.Builtin */
+.highlight .nc { color: #0e84b5; font-weight: bold } /* Name.Class */
+.highlight .no { color: #60add5 } /* Name.Constant */
+.highlight .nd { color: #555555; font-weight: bold } /* Name.Decorator */
+.highlight .ni { color: #d55537; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #007020 } /* Name.Exception */
+.highlight .nf { color: #06287e } /* Name.Function */
+.highlight .nl { color: #002070; font-weight: bold } /* Name.Label */
+.highlight .nn { color: #0e84b5; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #062873; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #bb60d5 } /* Name.Variable */
+.highlight .ow { color: #007020; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #40a070 } /* Literal.Number.Bin */
+.highlight .mf { color: #40a070 } /* Literal.Number.Float */
+.highlight .mh { color: #40a070 } /* Literal.Number.Hex */
+.highlight .mi { color: #40a070 } /* Literal.Number.Integer */
+.highlight .mo { color: #40a070 } /* Literal.Number.Oct */
+.highlight .sb { color: #4070a0 } /* Literal.String.Backtick */
+.highlight .sc { color: #4070a0 } /* Literal.String.Char */
+.highlight .sd { color: #4070a0; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #4070a0 } /* Literal.String.Double */
+.highlight .se { color: #4070a0; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #4070a0 } /* Literal.String.Heredoc */
+.highlight .si { color: #70a0d0; font-style: italic } /* Literal.String.Interpol */
+.highlight .sx { color: #c65d09 } /* Literal.String.Other */
+.highlight .sr { color: #235388 } /* Literal.String.Regex */
+.highlight .s1 { color: #4070a0 } /* Literal.String.Single */
+.highlight .ss { color: #517918 } /* Literal.String.Symbol */
+.highlight .bp { color: #007020 } /* Name.Builtin.Pseudo */
+.highlight .vc { color: #bb60d5 } /* Name.Variable.Class */
+.highlight .vg { color: #bb60d5 } /* Name.Variable.Global */
+.highlight .vi { color: #bb60d5 } /* Name.Variable.Instance */
+.highlight .il { color: #40a070 } /* Literal.Number.Integer.Long */</style>
+<h1>weui</h1>
+
+<p>先说一下weui是一个什么项目：</p>
+
+<p><a href="https://github.com/weui/weui">WeUI</a> 为微信 Web 服务量身设计的h5框架</p>
+
+<p>WeUI是一套同微信原生视觉体验一致的基础样式库，为微信 Web 开发量身设计，可以令用户的使用感知更加统一。包含button、cell、dialog、toast、article、icon等各式元素。</p>
+
+<p>它是使用less编写，最终编译成css，压缩成weui.min.css的，当然这里面还使用了一下比较好的开发实践</p>
+
+<ul>
+<li>web server</li>
+<li>livereload</li>
+<li>watch实时监控</li>
+<li>less：css预处理器</li>
+<li>minify 压缩</li>
+<li>sourcemap 生成</li>
+</ul>
+
+<p>下面我们来扒光它</p>
+
+<h3>准备工作</h3>
+
+<p>首先看目录结构</p>
+
+<p><img src="img/1.png" alt=""></p>
+
+<ul>
+<li>有package.json，说明它是一个node模块或者说它依赖了node模块</li>
+<li>有gulpfile.js，说明它是使用gulp作为构建工具的。</li>
+</ul>
+
+<p>还有src和dist目录，一般src是源码，dist是构建后生成的目录，至此，我们似乎明白了点什么</p>
+
+<p>首先clone代码</p>
+<div class="highlight"><pre><span class="vg">git</span><span class="w"> </span><span class="vg">clone</span><span class="w"> </span><span class="nl">https:</span><span class="o">//</span><span class="vg">github</span><span class="o">.</span><span class="vg">com</span><span class="o">/</span><span class="vg">weui</span><span class="o">/</span><span class="vg">weui</span><span class="o">.</span><span class="vg">git</span>
+</pre></div>
+<p>上面说了，有package.json，此时需要安装依赖模块</p>
+<div class="highlight"><pre><span class="vg">npm</span><span class="w"> </span><span class="vg">install</span>
+</pre></div>
+<p>至此就准备完了，下面看一下gulpfile.js</p>
+
+<h3>看一下它有哪些tasks</h3>
+
+<p>看一下它有哪些tasks，查看命令是<code>gulp -T</code></p>
+<div class="highlight"><pre><span class="err">➜</span><span class="w">  </span><span class="vg">weui</span><span class="w"> </span><span class="nl">git:</span><span class="p">(</span><span class="vg">master</span><span class="p">)</span><span class="w"> </span><span class="err">✗</span><span class="w"> </span><span class="vg">gulp</span><span class="w"> </span><span class="o">-</span><span class="vg">T</span>
+<span class="p">[</span><span class="il">14</span><span class="o">:</span><span class="il">04</span><span class="o">:</span><span class="il">18</span><span class="p">]</span><span class="w"> </span><span class="vg">Using</span><span class="w"> </span><span class="vg">gulpfile</span><span class="w"> </span><span class="o">~/</span><span class="vg">workspace</span><span class="o">/</span><span class="vg">github</span><span class="o">/</span><span class="vg">weui</span><span class="o">/</span><span class="vg">gulpfile</span><span class="o">.</span><span class="vg">js</span>
+<span class="p">[</span><span class="il">14</span><span class="o">:</span><span class="il">04</span><span class="o">:</span><span class="il">18</span><span class="p">]</span><span class="w"> </span><span class="vg">Tasks</span><span class="w"> </span><span class="vg">for</span><span class="w"> </span><span class="o">~/</span><span class="vg">workspace</span><span class="o">/</span><span class="vg">github</span><span class="o">/</span><span class="vg">weui</span><span class="o">/</span><span class="vg">gulpfile</span><span class="o">.</span><span class="vg">js</span>
+<span class="p">[</span><span class="il">14</span><span class="o">:</span><span class="il">04</span><span class="o">:</span><span class="il">18</span><span class="p">]</span><span class="w"> </span><span class="err">├──</span><span class="w"> </span><span class="vg">source</span>
+<span class="p">[</span><span class="il">14</span><span class="o">:</span><span class="il">04</span><span class="o">:</span><span class="il">18</span><span class="p">]</span><span class="w"> </span><span class="err">├─┬</span><span class="w"> </span><span class="vg">styles</span>
+<span class="p">[</span><span class="il">14</span><span class="o">:</span><span class="il">04</span><span class="o">:</span><span class="il">18</span><span class="p">]</span><span class="w"> </span><span class="err">│</span><span class="w"> </span><span class="err">└──</span><span class="w"> </span><span class="vg">source</span>
+<span class="p">[</span><span class="il">14</span><span class="o">:</span><span class="il">04</span><span class="o">:</span><span class="il">18</span><span class="p">]</span><span class="w"> </span><span class="err">├─┬</span><span class="w"> </span><span class="vg">release</span>
+<span class="p">[</span><span class="il">14</span><span class="o">:</span><span class="il">04</span><span class="o">:</span><span class="il">18</span><span class="p">]</span><span class="w"> </span><span class="err">│</span><span class="w"> </span><span class="err">└──</span><span class="w"> </span><span class="vg">styles</span>
+<span class="p">[</span><span class="il">14</span><span class="o">:</span><span class="il">04</span><span class="o">:</span><span class="il">18</span><span class="p">]</span><span class="w"> </span><span class="err">├──</span><span class="w"> </span><span class="vg">watch</span>
+<span class="p">[</span><span class="il">14</span><span class="o">:</span><span class="il">04</span><span class="o">:</span><span class="il">18</span><span class="p">]</span><span class="w"> </span><span class="err">├──</span><span class="w"> </span><span class="vg">server</span>
+<span class="p">[</span><span class="il">14</span><span class="o">:</span><span class="il">04</span><span class="o">:</span><span class="il">18</span><span class="p">]</span><span class="w"> </span><span class="err">└──</span><span class="w"> </span><span class="vg">default</span>
+</pre></div>
+<p>看这个的目的，其实就为了了解当前gulpfile里tasks，以便让大家有一个概况了解</p>
+
+<p>大概有7个task，其中styles和release是有依赖作业的。</p>
+
+<p>也就是说，整个项目目前的task比较少，比较适合讲解，而且是腾讯公司的项目，大家应该会比较认可一些</p>
+
+<p>ok，下面我们分别看一下每个task</p>
+
+<p>上面讲过，所有的task定义在gulpfile.js里，那么我们就结合源码，看一下gulpfile.js的task是如何定义，以及如何应用的</p>
+
+<h3>default</h3>
+<div class="highlight"><pre><span class="c1">// 参数说明</span>
+<span class="c1">//  -w: 实时监听</span>
+<span class="c1">//  -s: 启动服务器</span>
+<span class="c1">//  -p: 服务器启动端口，默认8080</span>
+<span class="n">gulp</span><span class="p">.</span><span class="k">task</span><span class="p">(&#39;</span><span class="k">default</span><span class="p">&#39;,</span> <span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">yargs</span><span class="p">.</span><span class="n">s</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">gulp</span><span class="p">.</span><span class="n">start</span><span class="p">(&#39;</span><span class="n">server</span><span class="p">&#39;);</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">yargs</span><span class="p">.</span><span class="n">w</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">gulp</span><span class="p">.</span><span class="n">start</span><span class="p">(&#39;</span><span class="k">release</span><span class="p">&#39;);</span>
+        <span class="n">gulp</span><span class="p">.</span><span class="n">start</span><span class="p">(&#39;</span><span class="n">watch</span><span class="p">&#39;);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="n">gulp</span><span class="p">.</span><span class="n">start</span><span class="p">(&#39;</span><span class="k">release</span><span class="p">&#39;);</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+<p>这是默认作业，也就是在根目录，执行</p>
+<div class="highlight"><pre><span class="vg">gulp</span>
+</pre></div>
+<p>相当于</p>
+<div class="highlight"><pre><span class="vg">gulp</span><span class="w"> </span><span class="vg">default</span>
+</pre></div>
+<p>其实make，rake，ant等都有类似约定。</p>
+
+<p>这里面值得说明的是</p>
+
+<ul>
+<li>1) 这是最简单的task定义，无任何依赖作业</li>
+<li>2) 作业里面使用nodejs写的yargs模块，用户处理cli参数</li>
+</ul>
+
+<p>比如此时可以执行<code>gulp -s</code>后者<code>gulp default -s</code></p>
+<div class="highlight"><pre><span class="err">➜</span><span class="w">  </span><span class="vg">weui</span><span class="w"> </span><span class="nl">git:</span><span class="p">(</span><span class="vg">master</span><span class="p">)</span><span class="w"> </span><span class="err">✗</span><span class="w"> </span><span class="vg">gulp</span><span class="w"> </span><span class="o">-</span><span class="vg">s</span>
+<span class="p">[</span><span class="il">14</span><span class="o">:</span><span class="il">14</span><span class="o">:</span><span class="il">09</span><span class="p">]</span><span class="w"> </span><span class="vg">Using</span><span class="w"> </span><span class="vg">gulpfile</span><span class="w"> </span><span class="o">~/</span><span class="vg">workspace</span><span class="o">/</span><span class="vg">github</span><span class="o">/</span><span class="vg">weui</span><span class="o">/</span><span class="vg">gulpfile</span><span class="o">.</span><span class="vg">js</span>
+<span class="p">[</span><span class="il">14</span><span class="o">:</span><span class="il">14</span><span class="o">:</span><span class="il">09</span><span class="p">]</span><span class="w"> </span><span class="vg">Starting</span><span class="w"> </span><span class="c1">&#39;default&#39;...</span>
+<span class="p">[</span><span class="il">14</span><span class="o">:</span><span class="il">14</span><span class="o">:</span><span class="il">09</span><span class="p">]</span><span class="w"> </span><span class="vg">Starting</span><span class="w"> </span><span class="c1">&#39;server&#39;...</span>
+<span class="p">[</span><span class="il">14</span><span class="o">:</span><span class="il">14</span><span class="o">:</span><span class="il">09</span><span class="p">]</span><span class="w"> </span><span class="vg">Finished</span><span class="w"> </span><span class="c1">&#39;server&#39; after 44 ms</span>
+<span class="p">[</span><span class="il">14</span><span class="o">:</span><span class="il">14</span><span class="o">:</span><span class="il">09</span><span class="p">]</span><span class="w"> </span><span class="vg">Starting</span><span class="w"> </span><span class="c1">&#39;source&#39;...</span>
+<span class="p">[</span><span class="il">14</span><span class="o">:</span><span class="il">14</span><span class="o">:</span><span class="il">09</span><span class="p">]</span><span class="w"> </span><span class="vg">Finished</span><span class="w"> </span><span class="c1">&#39;source&#39; after 9.24 ms</span>
+<span class="p">[</span><span class="il">14</span><span class="o">:</span><span class="il">14</span><span class="o">:</span><span class="il">09</span><span class="p">]</span><span class="w"> </span><span class="vg">Starting</span><span class="w"> </span><span class="c1">&#39;styles&#39;...</span>
+<span class="p">[</span><span class="il">14</span><span class="o">:</span><span class="il">14</span><span class="o">:</span><span class="il">09</span><span class="p">]</span><span class="w"> </span><span class="vg">Finished</span><span class="w"> </span><span class="c1">&#39;styles&#39; after 14 ms</span>
+<span class="p">[</span><span class="il">14</span><span class="o">:</span><span class="il">14</span><span class="o">:</span><span class="il">09</span><span class="p">]</span><span class="w"> </span><span class="vg">Starting</span><span class="w"> </span><span class="c1">&#39;release&#39;...</span>
+<span class="p">[</span><span class="il">14</span><span class="o">:</span><span class="il">14</span><span class="o">:</span><span class="il">09</span><span class="p">]</span><span class="w"> </span><span class="vg">Finished</span><span class="w"> </span><span class="c1">&#39;release&#39; after 4.62 μs</span>
+<span class="p">[</span><span class="il">14</span><span class="o">:</span><span class="il">14</span><span class="o">:</span><span class="il">09</span><span class="p">]</span><span class="w"> </span><span class="vg">Finished</span><span class="w"> </span><span class="c1">&#39;default&#39; after 71 ms</span>
+<span class="p">[</span><span class="vg">BS</span><span class="p">]</span><span class="w"> </span><span class="il">1</span><span class="w"> </span><span class="vg">file</span><span class="w"> </span><span class="vg">changed</span><span class="w"> </span><span class="p">(</span><span class="vg">example</span><span class="o">.</span><span class="vg">css</span><span class="p">)</span>
+<span class="p">[</span><span class="vg">BS</span><span class="p">]</span><span class="w"> </span><span class="il">1</span><span class="w"> </span><span class="vg">file</span><span class="w"> </span><span class="vg">changed</span><span class="w"> </span><span class="p">(</span><span class="vg">weui</span><span class="o">.</span><span class="vg">min</span><span class="o">.</span><span class="vg">css</span><span class="p">)</span>
+</pre></div>
+<p>然后它就会打开网页，跳转到http://localhost:8080/example/</p>
+
+<p>从task定义里可知</p>
+<div class="highlight"><pre><span class="w">    </span><span class="vg">if</span><span class="w"> </span><span class="p">(</span><span class="vg">yargs</span><span class="o">.</span><span class="vg">s</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="vg">gulp</span><span class="o">.</span><span class="vg">start</span><span class="p">(</span><span class="c1">&#39;server&#39;);</span>
+<span class="w">    </span><span class="p">}</span>
+</pre></div>
+<p>说明server是一个task，这里的start就相当于call或者invoke某个task的方法。</p>
+
+<p>注：yargs是一个nodejs模块，目前最好的解析cli参数的库</p>
+
+<p>当然，如果这样，是不是太简单了呢？而且亲，你还有2个参数没说呢</p>
+
+<p>是的</p>
+
+<ul>
+<li>-w: 实时监听</li>
+<li>-p: 服务器启动端口，默认8080</li>
+</ul>
+
+<p>这里要说的就是一个开发惯例，</p>
+
+<p><code>-p</code>很好理解，就是httpserver的短口port，如果指定是7070那就是7070，如果没指定就是8080
+给程序员自己定制的空间，谁还没有个端口自定义权利呢？</p>
+
+<p><code>-w</code>比较特殊，这里的w是watch的意思，就是监控某个文件或目录，只要有变化就触发xx动作，一般用于编译，比如coffee，typescript，less，sass等</p>
+
+<p>看一下定义</p>
+<div class="highlight"><pre><span class="w">    </span><span class="vg">if</span><span class="w"> </span><span class="p">(</span><span class="vg">yargs</span><span class="o">.</span><span class="vg">w</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="vg">gulp</span><span class="o">.</span><span class="vg">start</span><span class="p">(</span><span class="c1">&#39;release&#39;);</span>
+<span class="w">        </span><span class="vg">gulp</span><span class="o">.</span><span class="vg">start</span><span class="p">(</span><span class="c1">&#39;watch&#39;);</span>
+</pre></div>
+<p>这里的意思的如果有w参数，就先调release task，然后watch作业。</p>
+
+<p>这里牵连出3个task，有server，watch，release，容我慢慢道来</p>
+
+<p>btw：这里的<code>if (yargs.w) {</code>怎么看逻辑都怪怪的，既然有无w都执行release task，这样写法还是有待商榷的。</p>
+
+<h3>server</h3>
+
+<p>server task一看就知道是启动服务器，一般前端开发，都是起一个服务器在浏览器里测试</p>
+
+<p>所以还是比较容易理解</p>
+
+<p>看代码</p>
+<div class="highlight"><pre><span class="vg">gulp</span><span class="o">.</span><span class="vg">task</span><span class="p">(</span><span class="c1">&#39;server&#39;, function () {</span>
+<span class="w">    </span><span class="vg">browserSync</span><span class="o">.</span><span class="vg">init</span><span class="p">({</span>
+<span class="w">        </span><span class="nl">server:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nl">baseDir:</span><span class="w"> </span><span class="s2">&quot;./dist&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nl">ui:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nl">port:</span><span class="w"> </span><span class="il">8081</span><span class="p">,</span>
+<span class="w">            </span><span class="nl">weinre:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nl">port:</span><span class="w"> </span><span class="il">9090</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nl">port:</span><span class="w"> </span><span class="il">8080</span><span class="p">,</span>
+<span class="w">        </span><span class="nl">startPath:</span><span class="w"> </span><span class="c1">&#39;/example&#39;</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="p">});</span>
+</pre></div>
+<p>代码里的几个关键词</p>
+
+<ul>
+<li>browserSync</li>
+<li>server</li>
+<li>port</li>
+<li>startPath</li>
+<li>weinre</li>
+</ul>
+
+<p><a href="http://www.browsersync.io/docs/gulp/">browserSync</a>是一个nodejs模块，专门做的是livereload的事儿，也就是说，我们在编辑器里写代码，保存了，文件就会变动，文件变动了就会触发操作系统的监控事件，这时让浏览器刷新</p>
+
+<p>于是，代码变了，不用刷新浏览器就能看到效果。。。</p>
+
+<p>这其实就是传说中得livereload...</p>
+
+<p>又可以偷懒了，祭奠f5吧！！！</p>
+
+<p>其他（server，port，startPath）是browserSync的配置项，有兴趣自己扒文件吧</p>
+
+<p>这里稍稍提一下weinre，因为weui这个项目是移动端h5页面，所以才会用到weinre调试的，是远程调试h5的利器</p>
+
+<p>http://people.apache.org/~pmuellr/weinre-docs/latest/</p>
+
+<p>总结一下</p>
+
+<p>整个server就是browserSync提供的3个功能</p>
+
+<ul>
+<li>1）起了一个server</li>
+<li>2）支持livereload</li>
+<li>3) 自动打开网页</li>
+</ul>
+
+<p>还不错吧，下面看一下更实用的一个task： watch监控</p>
+
+<h3>watch</h3>
+<div class="highlight"><pre><span class="vg">gulp</span><span class="o">.</span><span class="vg">task</span><span class="p">(</span><span class="c1">&#39;watch&#39;, function () {</span>
+<span class="w">    </span><span class="vg">gulp</span><span class="o">.</span><span class="vg">watch</span><span class="p">(</span><span class="c1">&#39;src/**/*.less&#39;, [&#39;styles&#39;]);</span>
+<span class="w">    </span><span class="vg">gulp</span><span class="o">.</span><span class="vg">watch</span><span class="p">(</span><span class="c1">&#39;src/example/**/*.{html,js}&#39;, [&#39;source&#39;], function () {</span>
+<span class="w">        </span><span class="vg">browserSync</span><span class="o">.</span><span class="vg">reload</span><span class="p">();</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="p">});</span>
+</pre></div>
+<p>watch其实就干了2件事儿</p>
+
+<ul>
+<li>1）如果&#39;src/*<em>/</em>.less&#39;变动，执行styles task</li>
+<li>2）如果&#39;src/example/*<em>/</em>.{html,js}&#39;变动，先执行&#39;source&#39; task，然后livereload通知浏览器</li>
+</ul>
+
+<p>大家伙只要了解文件变动能干坏事即可，其他可自由发挥</p>
+
+<p>如果gulp内置的watch无法满足，你还可以使用gulp-watch这个单独模块，哈哈，如果有兴趣还可以研究一下操作系统底层监控文件变动接口，有点意思</p>
+
+<h3>release</h3>
+
+<p>release是发布最终css的task</p>
+<div class="highlight"><pre><span class="vg">gulp</span><span class="o">.</span><span class="vg">task</span><span class="p">(</span><span class="c1">&#39;release&#39;, [&#39;styles&#39;]);</span>
+</pre></div>
+<p>release只是依赖styles task，相当于styles的别名。</p>
+
+<p>值得说明的是，weui是less写的，需要编译成css，然后最终发布的是css文件</p>
+
+<p>那么，</p>
+
+<ul>
+<li>如果js是用coffeescript，typescript写的呢？</li>
+<li>如果css是用less，sass，stylus写的呢？</li>
+</ul>
+
+<p>其实都是一样的思路，编译成js或css，然后发布</p>
+
+<p>这些预处理器，让开发方便，高效的同时，也增加了前端的复杂度，真是老子那句话</p>
+
+<p>福兮祸所伏，祸兮福所倚...</p>
+
+<p>阿门。。。
+阿弥托佛。。。</p>
+
+<h3>source</h3>
+
+<p>下面一个source task</p>
+
+<p>上面的都比较简单，只是作业定义和作业依赖定义而已，下面看一下真实的流式处理</p>
+<div class="highlight"><pre><span class="vg">gulp</span><span class="o">.</span><span class="vg">task</span><span class="p">(</span><span class="c1">&#39;source&#39;, function(){</span>
+<span class="w">    </span><span class="vg">gulp</span><span class="o">.</span><span class="vg">src</span><span class="p">(</span><span class="c1">&#39;src/example/**/*.!(less)&#39;, option)</span>
+<span class="w">        </span><span class="o">.</span><span class="vg">pipe</span><span class="p">(</span><span class="vg">gulp</span><span class="o">.</span><span class="vg">dest</span><span class="p">(</span><span class="vg">dist</span><span class="p">))</span>
+<span class="w">        </span><span class="o">.</span><span class="vg">pipe</span><span class="p">(</span><span class="vg">browserSync</span><span class="o">.</span><span class="vg">reload</span><span class="p">({</span><span class="nl">stream:</span><span class="w"> </span><span class="vg">true</span><span class="p">}));</span>
+<span class="p">});</span>
+</pre></div>
+<p>回故一下，上面讲的流式内容</p>
+
+<ul>
+<li>src是输入</li>
+<li>dest是输出</li>
+<li>pipe是管道的意思，也是stream里核心概念，也就是说上一个的输出，是下一个的输入。</li>
+</ul>
+
+<p>这代码里的src里的，所有不是less的文件，都丢到dist目录</p>
+<div class="highlight"><pre><span class="w">    </span><span class="vg">gulp</span><span class="o">.</span><span class="vg">src</span><span class="p">(</span><span class="c1">&#39;src/example/**/*.!(less)&#39;, option)</span>
+<span class="w">        </span><span class="o">.</span><span class="vg">pipe</span><span class="p">(</span><span class="vg">gulp</span><span class="o">.</span><span class="vg">dest</span><span class="p">(</span><span class="vg">dist</span><span class="p">))</span>
+</pre></div>
+<p>然后，它又pipe一个，仅仅是为了表示顺序，无上下文传递关系（偷懒做法而已，不可取）</p>
+
+<p>这样写起来是不是非常简单？</p>
+
+<p>我知道你会回答是，下面我们来</p>
+
+<p>讲个不简单的</p>
+
+<h3>styles</h3>
+
+<p>下面是关于样式处理的task</p>
+<div class="highlight"><pre><span class="vg">gulp</span><span class="o">.</span><span class="vg">task</span><span class="p">(</span><span class="c1">&#39;styles&#39;, [&#39;source&#39;], function () {</span>
+<span class="w">    </span><span class="vg">gulp</span><span class="o">.</span><span class="vg">src</span><span class="p">(</span><span class="c1">&#39;src/example/example.less&#39;, option)</span>
+<span class="w">        </span><span class="o">.</span><span class="vg">pipe</span><span class="p">(</span><span class="vg">less</span><span class="p">()</span><span class="o">.</span><span class="vg">on</span><span class="p">(</span><span class="c1">&#39;error&#39;, function (e){</span>
+<span class="w">            </span><span class="vg">console</span><span class="o">.</span><span class="vg">error</span><span class="p">(</span><span class="vg">e</span><span class="o">.</span><span class="vg">message</span><span class="p">);</span>
+<span class="w">            </span><span class="vg">this</span><span class="o">.</span><span class="vg">emit</span><span class="p">(</span><span class="c1">&#39;end&#39;);</span>
+<span class="w">        </span><span class="p">}))</span>
+<span class="w">        </span><span class="o">.</span><span class="vg">pipe</span><span class="p">(</span><span class="vg">gulp</span><span class="o">.</span><span class="vg">dest</span><span class="p">(</span><span class="vg">dist</span><span class="p">))</span>
+<span class="w">        </span><span class="o">.</span><span class="vg">pipe</span><span class="p">(</span><span class="vg">browserSync</span><span class="o">.</span><span class="vg">reload</span><span class="p">({</span><span class="nl">stream:</span><span class="w"> </span><span class="vg">true</span><span class="p">}));</span>
+
+<span class="w">    </span><span class="vg">gulp</span><span class="o">.</span><span class="vg">src</span><span class="p">(</span><span class="c1">&#39;src/style/weui.less&#39;, option)</span>
+<span class="w">        </span><span class="o">.</span><span class="vg">pipe</span><span class="p">(</span><span class="vg">sourcemaps</span><span class="o">.</span><span class="vg">init</span><span class="p">())</span>
+<span class="w">        </span><span class="o">.</span><span class="vg">pipe</span><span class="p">(</span><span class="vg">less</span><span class="p">()</span><span class="o">.</span><span class="vg">on</span><span class="p">(</span><span class="c1">&#39;error&#39;, function (e) {</span>
+<span class="w">            </span><span class="vg">console</span><span class="o">.</span><span class="vg">error</span><span class="p">(</span><span class="vg">e</span><span class="o">.</span><span class="vg">message</span><span class="p">);</span>
+<span class="w">            </span><span class="vg">this</span><span class="o">.</span><span class="vg">emit</span><span class="p">(</span><span class="c1">&#39;end&#39;);</span>
+<span class="w">        </span><span class="p">}))</span>
+<span class="w">        </span><span class="o">.</span><span class="vg">pipe</span><span class="p">(</span><span class="vg">sourcemaps</span><span class="o">.</span><span class="vg">write</span><span class="p">())</span>
+<span class="w">        </span><span class="o">.</span><span class="vg">pipe</span><span class="p">(</span><span class="vg">autoprefixer</span><span class="p">())</span>
+<span class="w">        </span><span class="o">.</span><span class="vg">pipe</span><span class="p">(</span><span class="vg">gulp</span><span class="o">.</span><span class="vg">dest</span><span class="p">(</span><span class="vg">dist</span><span class="p">))</span>
+<span class="w">        </span><span class="o">.</span><span class="vg">pipe</span><span class="p">(</span><span class="vg">minify</span><span class="p">())</span>
+<span class="w">        </span><span class="o">.</span><span class="vg">pipe</span><span class="p">(</span><span class="vg">rename</span><span class="p">(</span><span class="vg">function</span><span class="w"> </span><span class="p">(</span><span class="vg">path</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="vg">path</span><span class="o">.</span><span class="vg">basename</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="c1">&#39;.min&#39;;</span>
+<span class="w">        </span><span class="p">}))</span>
+<span class="w">        </span><span class="o">.</span><span class="vg">pipe</span><span class="p">(</span><span class="vg">gulp</span><span class="o">.</span><span class="vg">dest</span><span class="p">(</span><span class="vg">dist</span><span class="p">))</span>
+<span class="w">        </span><span class="o">.</span><span class="vg">pipe</span><span class="p">(</span><span class="vg">browserSync</span><span class="o">.</span><span class="vg">reload</span><span class="p">({</span><span class="nl">stream:</span><span class="w"> </span><span class="vg">true</span><span class="p">}));</span>
+<span class="p">});</span>
+</pre></div>
+<p>这是整个gulpfile里最长的一个task</p>
+
+<p>下面拆成2部分分析一下</p>
+
+<ul>
+<li>依赖source，执行完source，然后编译less</li>
+<li>编译的less有例子和具体要发布的weui.css</li>
+</ul>
+
+<p>part1</p>
+<div class="highlight"><pre><span class="w">    </span><span class="vg">gulp</span><span class="o">.</span><span class="vg">src</span><span class="p">(</span><span class="c1">&#39;src/example/example.less&#39;, option)</span>
+<span class="w">        </span><span class="o">.</span><span class="vg">pipe</span><span class="p">(</span><span class="vg">less</span><span class="p">()</span><span class="o">.</span><span class="vg">on</span><span class="p">(</span><span class="c1">&#39;error&#39;, function (e){</span>
+<span class="w">            </span><span class="vg">console</span><span class="o">.</span><span class="vg">error</span><span class="p">(</span><span class="vg">e</span><span class="o">.</span><span class="vg">message</span><span class="p">);</span>
+<span class="w">            </span><span class="vg">this</span><span class="o">.</span><span class="vg">emit</span><span class="p">(</span><span class="c1">&#39;end&#39;);</span>
+<span class="w">        </span><span class="p">}))</span>
+<span class="w">        </span><span class="o">.</span><span class="vg">pipe</span><span class="p">(</span><span class="vg">gulp</span><span class="o">.</span><span class="vg">dest</span><span class="p">(</span><span class="vg">dist</span><span class="p">))</span>
+<span class="w">        </span><span class="o">.</span><span class="vg">pipe</span><span class="p">(</span><span class="vg">browserSync</span><span class="o">.</span><span class="vg">reload</span><span class="p">({</span><span class="nl">stream:</span><span class="w"> </span><span class="vg">true</span><span class="p">}));</span>
+</pre></div>
+<ul>
+<li>less()来编译less文件，src和dest大家要看清楚</li>
+<li>最后pipe了一个livereload触发</li>
+</ul>
+
+<p>和上面的source task类似，只有less编译不一样，这里就不详细讲解了</p>
+
+<p>下面看一下part2</p>
+<div class="highlight"><pre><span class="w">    </span><span class="vg">gulp</span><span class="o">.</span><span class="vg">src</span><span class="p">(</span><span class="c1">&#39;src/style/weui.less&#39;, option)</span>
+<span class="w">        </span><span class="o">.</span><span class="vg">pipe</span><span class="p">(</span><span class="vg">sourcemaps</span><span class="o">.</span><span class="vg">init</span><span class="p">())</span>
+<span class="w">        </span><span class="o">.</span><span class="vg">pipe</span><span class="p">(</span><span class="vg">less</span><span class="p">()</span><span class="o">.</span><span class="vg">on</span><span class="p">(</span><span class="c1">&#39;error&#39;, function (e) {</span>
+<span class="w">            </span><span class="vg">console</span><span class="o">.</span><span class="vg">error</span><span class="p">(</span><span class="vg">e</span><span class="o">.</span><span class="vg">message</span><span class="p">);</span>
+<span class="w">            </span><span class="vg">this</span><span class="o">.</span><span class="vg">emit</span><span class="p">(</span><span class="c1">&#39;end&#39;);</span>
+<span class="w">        </span><span class="p">}))</span>
+<span class="w">        </span><span class="o">.</span><span class="vg">pipe</span><span class="p">(</span><span class="vg">sourcemaps</span><span class="o">.</span><span class="vg">write</span><span class="p">())</span>
+<span class="w">        </span><span class="o">.</span><span class="vg">pipe</span><span class="p">(</span><span class="vg">autoprefixer</span><span class="p">())</span>
+<span class="w">        </span><span class="o">.</span><span class="vg">pipe</span><span class="p">(</span><span class="vg">gulp</span><span class="o">.</span><span class="vg">dest</span><span class="p">(</span><span class="vg">dist</span><span class="p">))</span>
+<span class="w">        </span><span class="o">.</span><span class="vg">pipe</span><span class="p">(</span><span class="vg">minify</span><span class="p">())</span>
+<span class="w">        </span><span class="o">.</span><span class="vg">pipe</span><span class="p">(</span><span class="vg">rename</span><span class="p">(</span><span class="vg">function</span><span class="w"> </span><span class="p">(</span><span class="vg">path</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="vg">path</span><span class="o">.</span><span class="vg">basename</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="c1">&#39;.min&#39;;</span>
+<span class="w">        </span><span class="p">}))</span>
+<span class="w">        </span><span class="o">.</span><span class="vg">pipe</span><span class="p">(</span><span class="vg">gulp</span><span class="o">.</span><span class="vg">dest</span><span class="p">(</span><span class="vg">dist</span><span class="p">))</span>
+<span class="w">        </span><span class="o">.</span><span class="vg">pipe</span><span class="p">(</span><span class="vg">browserSync</span><span class="o">.</span><span class="vg">reload</span><span class="p">({</span><span class="nl">stream:</span><span class="w"> </span><span class="vg">true</span><span class="p">}));</span>
+</pre></div>
+<ul>
+<li>src是src/style/weui.less</li>
+<li>sourcemaps.init()是初始化sourcemap</li>
+<li>less编译</li>
+<li> .pipe(sourcemaps.write())是写入sourcemap</li>
+<li>.pipe(autoprefixer())自动增加前缀</li>
+<li>.pipe(gulp.dest(dist)) 输出到dist目录</li>
+<li>.pipe(minify()) 是压缩</li>
+<li>.pipe(rename(function (path) 重命名，因为文件后面要加min</li>
+<li>.pipe(gulp.dest(dist)) 压缩后的文件进行保存</li>
+<li>.pipe(browserSync.reload({stream: true}));是livereload触发</li>
+</ul>
+
+<p>整体是分了3个阶段</p>
+
+<ul>
+<li>1）编译less和生成sourcemap</li>
+<li>2）压缩minify</li>
+<li>3）触发livereload</li>
+</ul>
+
+<h3>实战总结</h3>
+
+<p>至此，我们就讲完了所有gulpfile里的内容，以及每个task的细节</p>
+
+<p>结论是：这是一个比较典型的gulp项目，还不错</p>
+
+<p>当然它也不是非常完美，比如作业依赖可以优化、代码校验检测、release没有reversion处理等</p>
+
+<p>下面简单看一下package.json</p>
+
+<h3>package.json</h3>
+
+<p>这里有2个地方需要注意</p>
+<div class="highlight"><pre><span class="w">  </span><span class="s2">&quot;devDependencies&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s2">&quot;browser-sync&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;^2.9.11&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;gulp&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;^3.8.10&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;gulp-autoprefixer&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;^2.3.1&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;gulp-less&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;^3.0.2&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;gulp-minify-css&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;^0.4.4&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;gulp-rename&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;^1.2.2&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;gulp-replace&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;^0.5.2&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;gulp-sourcemaps&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;^1.6.0&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;yargs&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;^1.3.3&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+</pre></div>
+<p>是gulpfile里引用的模块</p>
+<div class="highlight"><pre><span class="w">  </span><span class="s2">&quot;scripts&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s2">&quot;test&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;gulp release&quot;</span>
+<span class="w">  </span><span class="p">},</span>
+</pre></div>
+<p>执行npm test即可发布最终css。</p>
+
+<h2>关于push state</h2>
+
+<p>最早一版本的代码 https://github.com/weui/weui/blob/489ddfbc1a9e0cc1f39803aa7ca9609a94ebde75/src/example/example.js</p>
+<div class="highlight"><pre><span class="cm">/**</span>
+<span class="cm"> * Created by jfengjiang on 2015/9/11.</span>
+<span class="cm"> */</span>
+
+<span class="err">$</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// 页面栈</span>
+    <span class="k">var</span> <span class="n">stack</span> <span class="o">=</span> <span class="p">[];</span>
+    <span class="k">var</span> <span class="err">$</span><span class="n">container</span> <span class="o">=</span> <span class="err">$</span><span class="p">(&#39;.</span><span class="n">js_container</span><span class="p">&#39;);</span>
+    <span class="err">$</span><span class="n">container</span><span class="p">.</span><span class="n">on</span><span class="p">(&#39;</span><span class="n">click</span><span class="p">&#39;,</span> <span class="p">&#39;.</span><span class="n">js_cell</span><span class="p">[</span><span class="n">data</span><span class="o">-</span><span class="n">id</span><span class="p">]&#39;,</span> <span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="k">var</span> <span class="n">id</span> <span class="o">=</span> <span class="err">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="n">data</span><span class="p">(&#39;</span><span class="n">id</span><span class="p">&#39;);</span>
+        <span class="k">var</span> <span class="err">$</span><span class="n">tpl</span> <span class="o">=</span> <span class="err">$</span><span class="p">(</span><span class="err">$</span><span class="p">(&#39;#</span><span class="n">tpl_</span><span class="p">&#39;</span> <span class="o">+</span> <span class="n">id</span><span class="p">).</span><span class="n">html</span><span class="p">()).</span><span class="n">addClass</span><span class="p">(&#39;</span><span class="n">slideIn</span><span class="p">&#39;).</span><span class="n">addClass</span><span class="p">(</span><span class="n">id</span><span class="p">);</span>
+        <span class="err">$</span><span class="n">container</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="err">$</span><span class="n">tpl</span><span class="p">);</span>
+        <span class="n">stack</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="err">$</span><span class="n">tpl</span><span class="p">);</span>
+        <span class="n">history</span><span class="p">.</span><span class="n">pushState</span><span class="p">({</span><span class="nl">id:</span> <span class="n">id</span><span class="p">},</span> <span class="p">&#39;&#39;,</span> <span class="sc">&#39;#&#39;</span> <span class="o">+</span> <span class="n">id</span><span class="p">);</span>
+
+        <span class="err">$</span><span class="p">(</span><span class="err">$</span><span class="n">tpl</span><span class="p">).</span><span class="n">on</span><span class="p">(&#39;</span><span class="n">webkitAnimationEnd</span><span class="p">&#39;,</span> <span class="k">function</span> <span class="p">(){</span>
+            <span class="err">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="n">removeClass</span><span class="p">(&#39;</span><span class="n">slideIn</span><span class="p">&#39;);</span>
+        <span class="p">}).</span><span class="n">on</span><span class="p">(&#39;</span><span class="n">animationend</span><span class="p">&#39;,</span> <span class="k">function</span> <span class="p">(){</span>
+            <span class="err">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="n">removeClass</span><span class="p">(&#39;</span><span class="n">slideIn</span><span class="p">&#39;);</span>
+        <span class="p">});</span>
+        <span class="c1">// tooltips</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">id</span> <span class="o">==</span> <span class="p">&#39;</span><span class="k">cell</span><span class="p">&#39;)</span> <span class="p">{</span>
+            <span class="err">$</span><span class="p">(&#39;.</span><span class="n">js_tooltips</span><span class="p">&#39;).</span><span class="n">show</span><span class="p">();</span>
+            <span class="n">setTimeout</span><span class="p">(</span><span class="k">function</span> <span class="p">(){</span>
+                <span class="err">$</span><span class="p">(&#39;.</span><span class="n">js_tooltips</span><span class="p">&#39;).</span><span class="n">hide</span><span class="p">();</span>
+            <span class="p">},</span> <span class="mh">3000</span><span class="p">);</span>
+        <span class="p">}</span>
+
+    <span class="p">});</span>
+
+    <span class="c1">// webkit will fired popstate on page loaded</span>
+    <span class="err">$</span><span class="p">(</span><span class="n">window</span><span class="p">).</span><span class="n">on</span><span class="p">(&#39;</span><span class="n">popstate</span><span class="p">&#39;,</span> <span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="k">var</span> <span class="err">$</span><span class="n">top</span> <span class="o">=</span> <span class="n">stack</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="err">$</span><span class="n">top</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="err">$</span><span class="n">top</span><span class="p">.</span><span class="n">addClass</span><span class="p">(&#39;</span><span class="n">slideOut</span><span class="p">&#39;).</span><span class="n">on</span><span class="p">(&#39;</span><span class="n">animationend</span><span class="p">&#39;,</span> <span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="err">$</span><span class="n">top</span><span class="p">.</span><span class="n">remove</span><span class="p">();</span>
+        <span class="p">}).</span><span class="n">on</span><span class="p">(&#39;</span><span class="n">webkitAnimationEnd</span><span class="p">&#39;,</span> <span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="err">$</span><span class="n">top</span><span class="p">.</span><span class="n">remove</span><span class="p">();</span>
+        <span class="p">});</span>
+    <span class="p">});</span>
+
+    <span class="c1">// toast</span>
+    <span class="err">$</span><span class="n">container</span><span class="p">.</span><span class="n">on</span><span class="p">(&#39;</span><span class="n">click</span><span class="p">&#39;,</span> <span class="p">&#39;#</span><span class="n">showToast</span><span class="p">&#39;,</span> <span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="err">$</span><span class="p">(&#39;#</span><span class="n">toast</span><span class="p">&#39;).</span><span class="n">show</span><span class="p">();</span>
+        <span class="n">setTimeout</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="err">$</span><span class="p">(&#39;#</span><span class="n">toast</span><span class="p">&#39;).</span><span class="n">hide</span><span class="p">();</span>
+        <span class="p">},</span> <span class="mh">5000</span><span class="p">);</span>
+    <span class="p">});</span>
+    <span class="err">$</span><span class="n">container</span><span class="p">.</span><span class="n">on</span><span class="p">(&#39;</span><span class="n">click</span><span class="p">&#39;,</span> <span class="p">&#39;#</span><span class="n">showLoadingToast</span><span class="p">&#39;,</span> <span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="err">$</span><span class="p">(&#39;#</span><span class="n">loadingToast</span><span class="p">&#39;).</span><span class="n">show</span><span class="p">();</span>
+        <span class="n">setTimeout</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="err">$</span><span class="p">(&#39;#</span><span class="n">loadingToast</span><span class="p">&#39;).</span><span class="n">hide</span><span class="p">();</span>
+        <span class="p">},</span> <span class="mh">5000</span><span class="p">);</span>
+    <span class="p">});</span>
+
+    <span class="err">$</span><span class="n">container</span><span class="p">.</span><span class="n">on</span><span class="p">(&#39;</span><span class="n">click</span><span class="p">&#39;,</span> <span class="p">&#39;#</span><span class="n">showDialog1</span><span class="p">&#39;,</span> <span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="err">$</span><span class="p">(&#39;#</span><span class="n">dialog1</span><span class="p">&#39;).</span><span class="n">show</span><span class="p">();</span>
+        <span class="err">$</span><span class="p">(&#39;#</span><span class="n">dialog1</span><span class="p">&#39;).</span><span class="n">find</span><span class="p">(&#39;.</span><span class="n">weui_btn_dialog</span><span class="p">&#39;).</span><span class="n">on</span><span class="p">(&#39;</span><span class="n">click</span><span class="p">&#39;,</span> <span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="err">$</span><span class="p">(&#39;#</span><span class="n">dialog1</span><span class="p">&#39;).</span><span class="n">hide</span><span class="p">();</span>
+        <span class="p">});</span>
+    <span class="p">});</span>
+    <span class="err">$</span><span class="n">container</span><span class="p">.</span><span class="n">on</span><span class="p">(&#39;</span><span class="n">click</span><span class="p">&#39;,</span> <span class="p">&#39;#</span><span class="n">showDialog2</span><span class="p">&#39;,</span> <span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="err">$</span><span class="p">(&#39;#</span><span class="n">dialog2</span><span class="p">&#39;).</span><span class="n">show</span><span class="p">();</span>
+        <span class="err">$</span><span class="p">(&#39;#</span><span class="n">dialog2</span><span class="p">&#39;).</span><span class="n">find</span><span class="p">(&#39;.</span><span class="n">weui_btn_dialog</span><span class="p">&#39;).</span><span class="n">on</span><span class="p">(&#39;</span><span class="n">click</span><span class="p">&#39;,</span> <span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="err">$</span><span class="p">(&#39;#</span><span class="n">dialog2</span><span class="p">&#39;).</span><span class="n">hide</span><span class="p">();</span>
+        <span class="p">});</span>
+    <span class="p">})</span>
+<span class="p">});</span>
+</pre></div>
+<p>11.18日的代码</p>
+<div class="highlight"><pre><span class="cm">/**</span>
+<span class="cm"> * Created by jfengjiang on 2015/9/11.</span>
+<span class="cm"> */</span>
+
+<span class="err">$</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// page stack</span>
+    <span class="k">var</span> <span class="n">stack</span> <span class="o">=</span> <span class="p">[];</span>
+    <span class="k">var</span> <span class="err">$</span><span class="n">container</span> <span class="o">=</span> <span class="err">$</span><span class="p">(&#39;.</span><span class="n">js_container</span><span class="p">&#39;);</span>
+    <span class="err">$</span><span class="n">container</span><span class="p">.</span><span class="n">on</span><span class="p">(&#39;</span><span class="n">click</span><span class="p">&#39;,</span> <span class="p">&#39;.</span><span class="n">js_cell</span><span class="p">[</span><span class="n">data</span><span class="o">-</span><span class="n">id</span><span class="p">]&#39;,</span> <span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="k">var</span> <span class="n">id</span> <span class="o">=</span> <span class="err">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="n">data</span><span class="p">(&#39;</span><span class="n">id</span><span class="p">&#39;);</span>
+        <span class="n">go</span><span class="p">(</span><span class="n">id</span><span class="p">);</span>
+    <span class="p">});</span>
+
+    <span class="c1">// location.hash = &#39;#hash1&#39; 和点击后退都会触发`hashchange`，这个demo页面只关心后退</span>
+    <span class="err">$</span><span class="p">(</span><span class="n">window</span><span class="p">).</span><span class="n">on</span><span class="p">(</span><span class="mh">&#39;ha</span><span class="n">shchange</span><span class="p">&#39;,</span> <span class="k">function</span> <span class="p">(</span><span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">/</span><span class="p">#.</span><span class="o">+/</span><span class="n">gi</span><span class="p">.</span><span class="n">test</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">newURL</span><span class="p">))</span> <span class="p">{</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">var</span> <span class="err">$</span><span class="n">top</span> <span class="o">=</span> <span class="n">stack</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="err">$</span><span class="n">top</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="err">$</span><span class="n">top</span><span class="p">.</span><span class="n">addClass</span><span class="p">(&#39;</span><span class="n">slideOut</span><span class="p">&#39;).</span><span class="n">on</span><span class="p">(&#39;</span><span class="n">animationend</span><span class="p">&#39;,</span> <span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="err">$</span><span class="n">top</span><span class="p">.</span><span class="n">remove</span><span class="p">();</span>
+        <span class="p">}).</span><span class="n">on</span><span class="p">(&#39;</span><span class="n">webkitAnimationEnd</span><span class="p">&#39;,</span> <span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="err">$</span><span class="n">top</span><span class="p">.</span><span class="n">remove</span><span class="p">();</span>
+        <span class="p">});</span>
+    <span class="p">});</span>
+
+    <span class="k">function</span> <span class="n">go</span><span class="p">(</span><span class="n">id</span><span class="p">){</span>
+        <span class="k">var</span> <span class="err">$</span><span class="n">tpl</span> <span class="o">=</span> <span class="err">$</span><span class="p">(</span><span class="err">$</span><span class="p">(&#39;#</span><span class="n">tpl_</span><span class="p">&#39;</span> <span class="o">+</span> <span class="n">id</span><span class="p">).</span><span class="n">html</span><span class="p">()).</span><span class="n">addClass</span><span class="p">(&#39;</span><span class="n">slideIn</span><span class="p">&#39;).</span><span class="n">addClass</span><span class="p">(</span><span class="n">id</span><span class="p">);</span>
+        <span class="err">$</span><span class="n">container</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="err">$</span><span class="n">tpl</span><span class="p">);</span>
+        <span class="n">stack</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="err">$</span><span class="n">tpl</span><span class="p">);</span>
+        <span class="c1">// why not use `history.pushState`, https://github.com/weui/weui/issues/26</span>
+        <span class="c1">//history.pushState({id: id}, &#39;&#39;, &#39;#&#39; + id);</span>
+        <span class="n">location</span><span class="p">.</span><span class="n">hash</span> <span class="o">=</span> <span class="sc">&#39;#&#39;</span> <span class="o">+</span> <span class="n">id</span><span class="p">;</span>
+
+        <span class="err">$</span><span class="p">(</span><span class="err">$</span><span class="n">tpl</span><span class="p">).</span><span class="n">on</span><span class="p">(&#39;</span><span class="n">webkitAnimationEnd</span><span class="p">&#39;,</span> <span class="k">function</span> <span class="p">(){</span>
+            <span class="err">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="n">removeClass</span><span class="p">(&#39;</span><span class="n">slideIn</span><span class="p">&#39;);</span>
+        <span class="p">}).</span><span class="n">on</span><span class="p">(&#39;</span><span class="n">animationend</span><span class="p">&#39;,</span> <span class="k">function</span> <span class="p">(){</span>
+            <span class="err">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="n">removeClass</span><span class="p">(&#39;</span><span class="n">slideIn</span><span class="p">&#39;);</span>
+        <span class="p">});</span>
+        <span class="c1">// tooltips</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">id</span> <span class="o">==</span> <span class="p">&#39;</span><span class="k">cell</span><span class="p">&#39;)</span> <span class="p">{</span>
+            <span class="err">$</span><span class="p">(&#39;.</span><span class="n">js_tooltips</span><span class="p">&#39;).</span><span class="n">show</span><span class="p">();</span>
+            <span class="n">setTimeout</span><span class="p">(</span><span class="k">function</span> <span class="p">(){</span>
+                <span class="err">$</span><span class="p">(&#39;.</span><span class="n">js_tooltips</span><span class="p">&#39;).</span><span class="n">hide</span><span class="p">();</span>
+            <span class="p">},</span> <span class="mh">3000</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="o">/</span><span class="p">#.</span><span class="err">*/</span><span class="n">gi</span><span class="p">.</span><span class="n">test</span><span class="p">(</span><span class="n">location</span><span class="p">.</span><span class="n">href</span><span class="p">))</span> <span class="p">{</span>
+        <span class="n">go</span><span class="p">(</span><span class="n">location</span><span class="p">.</span><span class="n">hash</span><span class="p">.</span><span class="n">slice</span><span class="p">(</span><span class="mh">1</span><span class="p">));</span>
+    <span class="p">}</span>
+
+    <span class="c1">// toast</span>
+    <span class="err">$</span><span class="n">container</span><span class="p">.</span><span class="n">on</span><span class="p">(&#39;</span><span class="n">click</span><span class="p">&#39;,</span> <span class="p">&#39;#</span><span class="n">showToast</span><span class="p">&#39;,</span> <span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="err">$</span><span class="p">(&#39;#</span><span class="n">toast</span><span class="p">&#39;).</span><span class="n">show</span><span class="p">();</span>
+        <span class="n">setTimeout</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="err">$</span><span class="p">(&#39;#</span><span class="n">toast</span><span class="p">&#39;).</span><span class="n">hide</span><span class="p">();</span>
+        <span class="p">},</span> <span class="mh">5000</span><span class="p">);</span>
+    <span class="p">});</span>
+    <span class="err">$</span><span class="n">container</span><span class="p">.</span><span class="n">on</span><span class="p">(&#39;</span><span class="n">click</span><span class="p">&#39;,</span> <span class="p">&#39;#</span><span class="n">showLoadingToast</span><span class="p">&#39;,</span> <span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="err">$</span><span class="p">(&#39;#</span><span class="n">loadingToast</span><span class="p">&#39;).</span><span class="n">show</span><span class="p">();</span>
+        <span class="n">setTimeout</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="err">$</span><span class="p">(&#39;#</span><span class="n">loadingToast</span><span class="p">&#39;).</span><span class="n">hide</span><span class="p">();</span>
+        <span class="p">},</span> <span class="mh">5000</span><span class="p">);</span>
+    <span class="p">});</span>
+
+    <span class="err">$</span><span class="n">container</span><span class="p">.</span><span class="n">on</span><span class="p">(&#39;</span><span class="n">click</span><span class="p">&#39;,</span> <span class="p">&#39;#</span><span class="n">showDialog1</span><span class="p">&#39;,</span> <span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="err">$</span><span class="p">(&#39;#</span><span class="n">dialog1</span><span class="p">&#39;).</span><span class="n">show</span><span class="p">();</span>
+        <span class="err">$</span><span class="p">(&#39;#</span><span class="n">dialog1</span><span class="p">&#39;).</span><span class="n">find</span><span class="p">(&#39;.</span><span class="n">weui_btn_dialog</span><span class="p">&#39;).</span><span class="n">on</span><span class="p">(&#39;</span><span class="n">click</span><span class="p">&#39;,</span> <span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="err">$</span><span class="p">(&#39;#</span><span class="n">dialog1</span><span class="p">&#39;).</span><span class="n">hide</span><span class="p">();</span>
+        <span class="p">});</span>
+    <span class="p">});</span>
+    <span class="err">$</span><span class="n">container</span><span class="p">.</span><span class="n">on</span><span class="p">(&#39;</span><span class="n">click</span><span class="p">&#39;,</span> <span class="p">&#39;#</span><span class="n">showDialog2</span><span class="p">&#39;,</span> <span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="err">$</span><span class="p">(&#39;#</span><span class="n">dialog2</span><span class="p">&#39;).</span><span class="n">show</span><span class="p">();</span>
+        <span class="err">$</span><span class="p">(&#39;#</span><span class="n">dialog2</span><span class="p">&#39;).</span><span class="n">find</span><span class="p">(&#39;.</span><span class="n">weui_btn_dialog</span><span class="p">&#39;).</span><span class="n">on</span><span class="p">(&#39;</span><span class="n">click</span><span class="p">&#39;,</span> <span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="err">$</span><span class="p">(&#39;#</span><span class="n">dialog2</span><span class="p">&#39;).</span><span class="n">hide</span><span class="p">();</span>
+        <span class="p">});</span>
+    <span class="p">});</span>
+
+    <span class="k">function</span> <span class="n">hideActionSheet</span><span class="p">(</span><span class="n">weuiActionsheet</span><span class="p">,</span> <span class="n">mask</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">weuiActionsheet</span><span class="p">.</span><span class="n">removeClass</span><span class="p">(&#39;</span><span class="n">weui_actionsheet_toggle</span><span class="p">&#39;);</span>
+        <span class="n">mask</span><span class="p">.</span><span class="n">removeClass</span><span class="p">(&#39;</span><span class="n">weui_fade_toggle</span><span class="p">&#39;);</span>
+        <span class="n">weuiActionsheet</span><span class="p">.</span><span class="n">on</span><span class="p">(&#39;</span><span class="n">transitionend</span><span class="p">&#39;,</span> <span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="n">mask</span><span class="p">.</span><span class="n">hide</span><span class="p">();</span>
+        <span class="p">}).</span><span class="n">on</span><span class="p">(&#39;</span><span class="n">webkitTransitionEnd</span><span class="p">&#39;,</span> <span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="n">mask</span><span class="p">.</span><span class="n">hide</span><span class="p">();</span>
+        <span class="p">})</span>
+    <span class="p">}</span>
+    <span class="err">$</span><span class="n">container</span><span class="p">.</span><span class="n">on</span><span class="p">(&#39;</span><span class="n">click</span><span class="sc">&#39;,&#39;</span><span class="p">#</span><span class="n">showActionSheet</span><span class="p">&#39;,</span> <span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="k">var</span> <span class="n">mask</span> <span class="o">=</span> <span class="err">$</span><span class="p">(&#39;#</span><span class="n">mask</span><span class="p">&#39;);</span>
+        <span class="k">var</span> <span class="n">weuiActionsheet</span> <span class="o">=</span> <span class="err">$</span><span class="p">(&#39;#</span><span class="n">weui_actionsheet</span><span class="p">&#39;);</span>
+        <span class="n">weuiActionsheet</span><span class="p">.</span><span class="n">addClass</span><span class="p">(&#39;</span><span class="n">weui_actionsheet_toggle</span><span class="p">&#39;);</span>
+        <span class="n">mask</span><span class="p">.</span><span class="n">show</span><span class="p">().</span><span class="n">addClass</span><span class="p">(&#39;</span><span class="n">weui_fade_toggle</span><span class="p">&#39;).</span><span class="n">click</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="n">hideActionSheet</span><span class="p">(</span><span class="n">weuiActionsheet</span><span class="p">,</span> <span class="n">mask</span><span class="p">);</span>
+        <span class="p">});</span>
+        <span class="err">$</span><span class="p">(&#39;#</span><span class="n">actionsheet_cancel</span><span class="p">&#39;).</span><span class="n">click</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="n">hideActionSheet</span><span class="p">(</span><span class="n">weuiActionsheet</span><span class="p">,</span> <span class="n">mask</span><span class="p">);</span>
+        <span class="p">});</span>
+        <span class="n">weuiActionsheet</span><span class="p">.</span><span class="n">unbind</span><span class="p">(&#39;</span><span class="n">transitionend</span><span class="p">&#39;).</span><span class="n">unbind</span><span class="p">(&#39;</span><span class="n">webkitTransitionEnd</span><span class="p">&#39;);</span>
+    <span class="p">});</span>
+<span class="p">});</span>
+</pre></div>
+<h2>issues</h2>
+
+<p>修复<code>pushState</code>导致微信从左边缘向右滑动无法返回上一页，而是直接关闭WebView的bug</p>
+
+<p>https://github.com/weui/weui/commit/e547d9d8ef02e2318ce9d173169056e36987abcd</p>
+
+<h2>FAQ</h2>
+
+			          	</article>
+			        </div>
+					</div>
+	      </body>
+	    </html>
+			<script type="text/javascript" src="toc/js/jquery-1.4.4.min.js"></script>
+			<script type="text/javascript" src="toc/js/jquery.ztree.all-3.5.min.js"></script>
+			<script type="text/javascript" src="toc/js/ztree_toc.js"></script>
+      <script type="text/javascript" src="toc/toc_conf.js"></script>
+      
+			<SCRIPT type="text/javascript" >
+			<!--
+			$(document).ready(function(){
+          var css_conf = eval(markdown_panel_style);
+          $('#readme').css(css_conf)
+          
+          var conf = eval(jquery_ztree_toc_opts);
+  				$('#tree').ztree_toc(conf);
+
+				
+			});
+			//-->
+			</SCRIPT>
+	  
