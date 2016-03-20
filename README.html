@@ -137,9 +137,413 @@
 
 <p><a href="https://github.com/weui/weui">WeUI</a> 为微信 Web 服务量身设计的h5框架</p>
 
-<p>WeUI是一套同微信原生视觉体验一致的基础样式库，为微信 Web 开发量身设计，可以令用户的使用感知更加统一。包含button、cell、dialog、toast、article、icon等各式元素。</p>
+<p>WeUI是一套同微信原生视觉体验一致的基础样式库，由微信官方设计团队为微信 Web 开发量身设计，可以令用户的使用感知更加统一。包含button、cell、dialog、 progress、 toast、article、icon等各式元素。</p>
+
+<p>严格的讲它是一个css库。算一个精简的库</p>
 
 <p>它是使用less编写，最终编译成css，压缩成weui.min.css的，当然这里面还使用了一下比较好的开发实践</p>
+
+<h2>入门</h2>
+<div class="highlight"><pre><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">&quot;en&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;head&gt;</span>
+        <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">&quot;UTF-8&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content=</span><span class="s">&quot;width=device-width,initial-scale=1,user-scalable=0&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;title&gt;</span>WeUI<span class="nt">&lt;/title&gt;</span>
+        <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;path/to/weui/dist/style/weui.min.css&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/head&gt;</span>
+    <span class="nt">&lt;body&gt;</span>
+
+    <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre></div>
+<p>但它的demo里提供了不少好东西</p>
+
+<p>打开weui/examples/index.html就可以演示效果</p>
+
+<p><img src="img/weui.gif" alt=""></p>
+
+<ul>
+<li>模板是加载，替换了常规的ajax（页面少的时候是个好办法）</li>
+<li>实现了container里的显示隐藏效果</li>
+<li>pushstate改变url</li>
+</ul>
+
+<p>结构</p>
+
+<ul>
+<li>container
+
+<ul>
+<li>page1</li>
+<li>page2</li>
+</ul></li>
+</ul>
+
+<p>看一下代码结构</p>
+
+<p><img src="img/3.png" alt=""></p>
+
+<h3>helloworld</h3>
+
+<p>copy </p>
+<div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;container js_container&quot;</span><span class="nt">&gt;</span>
+  ...
+<span class="nt">&lt;/div&gt;</span>
+</pre></div>
+<p>预览一下效果，看到图片都未展示，于是把example里的images放到public/images下</p>
+
+<p>此时预览，发现图片特别大，这肯定是css没有加载，于是把example.css放到public/demo下
+改名为myweui.css</p>
+
+<p>在html里引入即可</p>
+<div class="highlight"><pre><span class="o">&lt;</span><span class="vg">link</span><span class="w"> </span><span class="vg">rel</span><span class="o">=</span><span class="s2">&quot;stylesheet&quot;</span><span class="w"> </span><span class="vg">href</span><span class="o">=</span><span class="s2">&quot;./myweui.css&quot;</span><span class="w"> </span><span class="o">/&gt;</span>
+</pre></div>
+<p>此时预览就可以了。此例用于测试样式是足够的，是为helloworld1</p>
+
+<p>可是我如何点击，进入下一页呢</p>
+
+<h3>多页操作</h3>
+
+<p>把之前例子的</p>
+<div class="highlight"><pre>    <span class="nt">&lt;script</span> <span class="na">type=</span><span class="s">&quot;text/html&quot;</span> <span class="na">id=</span><span class="s">&quot;tpl_button&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;page&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;hd&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">&quot;page_title&quot;</span><span class="nt">&gt;</span>Button<span class="nt">&lt;/h1&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;bd spacing&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;javascript:;&quot;</span> <span class="na">class=</span><span class="s">&quot;weui_btn weui_btn_primary&quot;</span><span class="nt">&gt;</span>按钮<span class="nt">&lt;/a&gt;</span>
+                <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;javascript:;&quot;</span> <span class="na">class=</span><span class="s">&quot;weui_btn weui_btn_disabled weui_btn_primary&quot;</span><span class="nt">&gt;</span>按钮<span class="nt">&lt;/a&gt;</span>
+                <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;javascript:;&quot;</span> <span class="na">class=</span><span class="s">&quot;weui_btn weui_btn_warn&quot;</span><span class="nt">&gt;</span>确认<span class="nt">&lt;/a&gt;</span>
+                <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;javascript:;&quot;</span> <span class="na">class=</span><span class="s">&quot;weui_btn weui_btn_disabled weui_btn_warn&quot;</span><span class="nt">&gt;</span>确认<span class="nt">&lt;/a&gt;</span>
+                <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;javascript:;&quot;</span> <span class="na">class=</span><span class="s">&quot;weui_btn weui_btn_default&quot;</span><span class="nt">&gt;</span>按钮<span class="nt">&lt;/a&gt;</span>
+                <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;javascript:;&quot;</span> <span class="na">class=</span><span class="s">&quot;weui_btn weui_btn_disabled weui_btn_default&quot;</span><span class="nt">&gt;</span>按钮<span class="nt">&lt;/a&gt;</span>
+                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;button_sp_area&quot;</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;javascript:;&quot;</span> <span class="na">class=</span><span class="s">&quot;weui_btn weui_btn_plain_default&quot;</span><span class="nt">&gt;</span>按钮<span class="nt">&lt;/a&gt;</span>
+                    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;javascript:;&quot;</span> <span class="na">class=</span><span class="s">&quot;weui_btn weui_btn_plain_primary&quot;</span><span class="nt">&gt;</span>按钮<span class="nt">&lt;/a&gt;</span>
+
+                    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;javascript:;&quot;</span> <span class="na">class=</span><span class="s">&quot;weui_btn weui_btn_mini weui_btn_primary&quot;</span><span class="nt">&gt;</span>按钮<span class="nt">&lt;/a&gt;</span>
+                    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;javascript:;&quot;</span> <span class="na">class=</span><span class="s">&quot;weui_btn weui_btn_mini weui_btn_default&quot;</span><span class="nt">&gt;</span>按钮<span class="nt">&lt;/a&gt;</span>
+                <span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/script&gt;</span>
+</pre></div>
+<p>放到.container下面，这样就定义了模板</p>
+
+<p>此时点击button按钮是不会有显示的。</p>
+
+<p>那么我再找找例子里，是不是少什么东西?</p>
+
+<p>把example.js放到public/demo下，改名为myweui.js</p>
+
+<p>引入</p>
+<div class="highlight"><pre>    <span class="nt">&lt;script</span> <span class="na">src=</span><span class="s">&quot;./myweui.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</pre></div>
+<p>此时刷新就好了。</p>
+
+<p>也就是说所有的东西都在这个js里，我们之前说的pushstate、各种效果等都在这里</p>
+
+<p>看一下按钮是如何定义和响应的</p>
+<div class="highlight"><pre><span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">&quot;weui_cell js_cell&quot;</span> <span class="na">href=</span><span class="s">&quot;javascript:;&quot;</span> <span class="na">data-id=</span><span class="s">&quot;button&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&quot;weui_cell_hd&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">&quot;/images/icon_nav_button.png&quot;</span> <span class="na">class=</span><span class="s">&quot;icon_nav&quot;</span> <span class="na">alt=</span><span class="s">&quot;&quot;</span><span class="nt">&gt;&lt;/span&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;weui_cell_bd weui_cell_primary&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;p&gt;</span>Button<span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;weui_cell_ft&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/a&gt;</span>
+</pre></div>
+<ul>
+<li>class=&quot;weui_cell js_cell&quot;</li>
+<li>data-id=&quot;button&quot;</li>
+</ul>
+
+<p>这样就行了？</p>
+
+<p>我们看一下myweui.js</p>
+<div class="highlight"><pre><span class="err">$</span><span class="p">(</span><span class="vg">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</pre></div>
+<p>这很明显是zeptojs写法</p>
+<div class="highlight"><pre><span class="c1">// page stack</span>
+<span class="k">var</span> <span class="n">stack</span> <span class="o">=</span> <span class="p">[];</span>
+<span class="k">var</span> <span class="err">$</span><span class="n">container</span> <span class="o">=</span> <span class="err">$</span><span class="p">(&#39;.</span><span class="n">js_container</span><span class="p">&#39;);</span>
+<span class="err">$</span><span class="n">container</span><span class="p">.</span><span class="n">on</span><span class="p">(&#39;</span><span class="n">click</span><span class="p">&#39;,</span> <span class="p">&#39;.</span><span class="n">js_cell</span><span class="p">[</span><span class="n">data</span><span class="o">-</span><span class="n">id</span><span class="p">]&#39;,</span> <span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="n">id</span> <span class="o">=</span> <span class="err">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="n">data</span><span class="p">(&#39;</span><span class="n">id</span><span class="p">&#39;);</span>
+    <span class="n">go</span><span class="p">(</span><span class="n">id</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+<p>头几行，定义了一个stack，我们想一下那个推进来的效果，</p>
+
+<ul>
+<li>默认显示，为栈的第一个元素</li>
+<li>如果push进来就，stack里push一个，设置为当前显示的</li>
+<li>如果点击返回呢，stack里pop出去最后一个，设置上一个为显示的</li>
+<li>如果返回了栈顶，点返回就没效果了</li>
+</ul>
+
+<p>这里的click事件，它的事件是.js_cell[data-id]</p>
+
+<p>也就是class=js_cell，并且有data-id属性。</p>
+
+<p>对比一下button的按钮</p>
+<div class="highlight"><pre><span class="o">&lt;</span><span class="vg">a</span><span class="w"> </span><span class="vg">class</span><span class="o">=</span><span class="s2">&quot;weui_cell js_cell&quot;</span><span class="w"> </span><span class="vg">href</span><span class="o">=</span><span class="s2">&quot;javascript:;&quot;</span><span class="w"> </span><span class="vg">data</span><span class="o">-</span><span class="vg">id</span><span class="o">=</span><span class="s2">&quot;button&quot;</span><span class="o">&gt;</span>
+</pre></div>
+<p>如此，大概你就该明白了。</p>
+
+<p>那么事件里面是</p>
+<div class="highlight"><pre><span class="vg">var</span><span class="w"> </span><span class="vg">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">$</span><span class="p">(</span><span class="vg">this</span><span class="p">)</span><span class="o">.</span><span class="vg">data</span><span class="p">(</span><span class="c1">&#39;id&#39;);</span>
+<span class="vg">go</span><span class="p">(</span><span class="vg">id</span><span class="p">);</span>
+</pre></div>
+<p>就用button这个例子讲，这个id应该是data-id=&quot;button&quot;里的button，对吧？</p>
+
+<p>然后go就跳转了，也就是push的效果应该是它弄的</p>
+<div class="highlight"><pre><span class="vg">function</span><span class="w"> </span><span class="vg">go</span><span class="p">(</span><span class="vg">id</span><span class="p">){</span>
+<span class="w">    </span><span class="vg">var</span><span class="w"> </span><span class="err">$</span><span class="vg">tpl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">$</span><span class="p">(</span><span class="err">$</span><span class="p">(</span><span class="c1">&#39;#tpl_&#39; + id).html()).addClass(&#39;slideIn&#39;).addClass(id);</span>
+<span class="w">    </span><span class="err">$</span><span class="vg">container</span><span class="o">.</span><span class="vg">append</span><span class="p">(</span><span class="err">$</span><span class="vg">tpl</span><span class="p">);</span>
+<span class="w">    </span><span class="vg">stack</span><span class="o">.</span><span class="vg">push</span><span class="p">(</span><span class="err">$</span><span class="vg">tpl</span><span class="p">);</span>
+<span class="w">    </span><span class="o">//</span><span class="w"> </span><span class="vg">why</span><span class="w"> </span><span class="vg">not</span><span class="w"> </span><span class="vg">use</span><span class="w"> </span><span class="err">`</span><span class="vg">history</span><span class="o">.</span><span class="vg">pushState</span><span class="err">`</span><span class="p">,</span><span class="w"> </span><span class="nl">https:</span><span class="o">//</span><span class="vg">github</span><span class="o">.</span><span class="vg">com</span><span class="o">/</span><span class="vg">weui</span><span class="o">/</span><span class="vg">weui</span><span class="o">/</span><span class="vg">issues</span><span class="o">/</span><span class="il">26</span>
+<span class="w">    </span><span class="o">//</span><span class="vg">history</span><span class="o">.</span><span class="vg">pushState</span><span class="p">({</span><span class="nl">id:</span><span class="w"> </span><span class="vg">id</span><span class="p">},</span><span class="w"> </span><span class="c1">&#39;&#39;, &#39;#&#39; + id);</span>
+<span class="w">    </span><span class="vg">location</span><span class="o">.</span><span class="vg">hash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="c1">&#39;#&#39; + id;</span>
+
+<span class="w">    </span><span class="err">$</span><span class="p">(</span><span class="err">$</span><span class="vg">tpl</span><span class="p">)</span><span class="o">.</span><span class="vg">on</span><span class="p">(</span><span class="c1">&#39;webkitAnimationEnd&#39;, function (){</span>
+<span class="w">        </span><span class="err">$</span><span class="p">(</span><span class="vg">this</span><span class="p">)</span><span class="o">.</span><span class="vg">removeClass</span><span class="p">(</span><span class="c1">&#39;slideIn&#39;);</span>
+<span class="w">    </span><span class="p">})</span><span class="o">.</span><span class="vg">on</span><span class="p">(</span><span class="c1">&#39;animationend&#39;, function (){</span>
+<span class="w">        </span><span class="err">$</span><span class="p">(</span><span class="vg">this</span><span class="p">)</span><span class="o">.</span><span class="vg">removeClass</span><span class="p">(</span><span class="c1">&#39;slideIn&#39;);</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="w">    </span><span class="o">//</span><span class="w"> </span><span class="vg">tooltips</span>
+<span class="w">    </span><span class="vg">if</span><span class="w"> </span><span class="p">(</span><span class="vg">id</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="c1">&#39;cell&#39;) {</span>
+<span class="w">        </span><span class="err">$</span><span class="p">(</span><span class="c1">&#39;.js_tooltips&#39;).show();</span>
+<span class="w">        </span><span class="vg">setTimeout</span><span class="p">(</span><span class="vg">function</span><span class="w"> </span><span class="p">(){</span>
+<span class="w">            </span><span class="err">$</span><span class="p">(</span><span class="c1">&#39;.js_tooltips&#39;).hide();</span>
+<span class="w">        </span><span class="p">},</span><span class="w"> </span><span class="il">3000</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+<p>看一下源码</p>
+
+<ul>
+<li>$container.append($tpl);是dom元素插入</li>
+<li>stack.push($tpl); 视图栈压入最新的</li>
+<li>location.hash = &#39;#&#39; + id;是pushstate更改url地址</li>
+<li>其他就是动画或者根据id干点坏事了</li>
+</ul>
+
+<p>稍微注意一下：我们push的页面从哪里来的？</p>
+<div class="highlight"><pre><span class="vg">var</span><span class="w"> </span><span class="err">$</span><span class="vg">tpl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">$</span><span class="p">(</span><span class="err">$</span><span class="p">(</span><span class="c1">&#39;#tpl_&#39; + id).html()).addClass(&#39;slideIn&#39;).addClass(id);</span>
+<span class="err">$</span><span class="vg">container</span><span class="o">.</span><span class="vg">append</span><span class="p">(</span><span class="err">$</span><span class="vg">tpl</span><span class="p">);</span>
+</pre></div>
+<p>我们知道id是data-id=&quot;button&quot;里的button，也就是说我们要根据id=“tpl_button”来找模板里的html。</p>
+
+<p>想想我们之前是不是拷贝了一个这样的模板？</p>
+
+<p>ok，只要是class=js_cell，并且有data-id属性的就会触发点击时间，根据tpl_button里的内容显示（push）。</p>
+
+<p>这是push，那么返回pop呢？</p>
+<div class="highlight"><pre><span class="c1">// location.hash = &#39;#hash1&#39; 和点击后退都会触发`hashchange`，这个demo页面只关心后退</span>
+<span class="err">$</span><span class="p">(</span><span class="n">window</span><span class="p">).</span><span class="n">on</span><span class="p">(</span><span class="mh">&#39;ha</span><span class="n">shchange</span><span class="p">&#39;,</span> <span class="k">function</span> <span class="p">(</span><span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">/</span><span class="p">#.</span><span class="o">+/</span><span class="n">gi</span><span class="p">.</span><span class="n">test</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">newURL</span><span class="p">))</span> <span class="p">{</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">var</span> <span class="err">$</span><span class="n">top</span> <span class="o">=</span> <span class="n">stack</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="err">$</span><span class="n">top</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="err">$</span><span class="n">top</span><span class="p">.</span><span class="n">addClass</span><span class="p">(&#39;</span><span class="n">slideOut</span><span class="p">&#39;).</span><span class="n">on</span><span class="p">(&#39;</span><span class="n">animationend</span><span class="p">&#39;,</span> <span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="err">$</span><span class="n">top</span><span class="p">.</span><span class="n">remove</span><span class="p">();</span>
+    <span class="p">}).</span><span class="n">on</span><span class="p">(&#39;</span><span class="n">webkitAnimationEnd</span><span class="p">&#39;,</span> <span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="err">$</span><span class="n">top</span><span class="p">.</span><span class="n">remove</span><span class="p">();</span>
+    <span class="p">});</span>
+<span class="p">});</span>
+</pre></div>
+<p>location.hash变了</p>
+
+<ul>
+<li>var $top = stack.pop();很明显出栈了</li>
+<li>if (!$top) {return;} 是如果栈顶，不做操作</li>
+<li>然后处理$top，然后出栈的视图移除掉</li>
+</ul>
+
+<p>最外面的视图移除了，很明显就是上一个视图显示了。</p>
+
+<p>so，原理就是这么简单</p>
+
+<p>时间有限，视图和其他点击事件控件的演示就不讲了</p>
+
+<h3>weui的缺点</h3>
+
+<p>weui的优点</p>
+
+<ul>
+<li>它很好的解决推入和返回的问题</li>
+<li>它有微信一样的ui界面</li>
+<li>它还提供了基本的ui组件（弹出框，actionsheet等）</li>
+</ul>
+
+<p>那么它的缺点呢？页面内容过长的时候，滑动不流畅，以为它就没解决这个问题呢</p>
+
+<p>这不正是iscroll解决的问题么？</p>
+
+<p>如果weui加上iscroll的特性，是不是就很棒了？</p>
+
+<h2>让weui和iscroll结婚</h2>
+
+<h3>以weui2为蓝本</h3>
+
+<p>观察一下它的dom</p>
+<div class="highlight"><pre>    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;container js_container&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;page&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;hd&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">&quot;page_title&quot;</span><span class="nt">&gt;</span>WeUI<span class="nt">&lt;/h1&gt;</span>
+                <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">&quot;page_desc&quot;</span><span class="nt">&gt;</span>为微信Web服务量身设计<span class="nt">&lt;/p&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;bd&quot;</span><span class="nt">&gt;</span>
+
+            <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+</pre></div>
+<p>结合我们之前讲的移动端特点</p>
+
+<ul>
+<li>header</li>
+<li>content（#wrapper）</li>
+<li>footer</li>
+</ul>
+
+<p>也就是说我们可以这样做</p>
+<div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;container js_container&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;page&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;hd header&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">&quot;page_title&quot;</span><span class="nt">&gt;</span>WeUI<span class="nt">&lt;/h1&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;bd&quot;</span> <span class="na">id=</span><span class="s">&quot;wrapper&quot;</span><span class="nt">&gt;</span>
+
+        <span class="nt">&lt;/div&gt;</span>
+
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;hd footer&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">&quot;page_title&quot;</span><span class="nt">&gt;</span>WeUI<span class="nt">&lt;/h1&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre></div>
+<p>我们先把helloiscroll里的内容放进去</p>
+<div class="highlight"><pre><span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">&quot;page_title&quot;</span><span class="nt">&gt;</span>WeUI<span class="nt">&lt;/h1&gt;</span>
+</pre></div>
+<p>去掉 class=&quot;page_title&quot;</p>
+
+<p>不能滑动，添加js就好了</p>
+<div class="highlight"><pre>  <span class="nt">&lt;script</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
+    $(function(){
+      // alert(&#39;dom ready&#39;);
+      loaded () ;
+    });
+
+    var myScroll;
+
+    function loaded () {
+        myScroll = new IScroll(&#39;#wrapper&#39;, { mouseWheel: true });
+    }
+
+    document.addEventListener(&#39;touchmove&#39;, function (e) { 
+      e.preventDefault(); 
+    }, false);
+
+  <span class="nt">&lt;/script&gt;</span>
+</pre></div>
+<p>修改iscroll2.css</p>
+<div class="highlight"><pre><span class="w">  </span><span class="err">#</span><span class="vg">header</span><span class="w"> </span><span class="p">{</span><span class="o">/*</span><span class="vg">add</span><span class="o">*/</span>
+<span class="w">    </span><span class="nl">position:</span><span class="w"> </span><span class="vg">absolute</span><span class="p">;</span>
+<span class="w">    </span><span class="vg">z</span><span class="o">-</span><span class="nl">index:</span><span class="w"> </span><span class="il">2</span><span class="p">;</span>
+<span class="w">    </span><span class="nl">top:</span><span class="w"> </span><span class="il">0</span><span class="p">;</span>
+<span class="w">    </span><span class="nl">left:</span><span class="w"> </span><span class="il">0</span><span class="p">;</span>
+<span class="w">    </span><span class="nl">width:</span><span class="w"> </span><span class="il">100</span><span class="o">%</span><span class="p">;</span>
+<span class="w">    </span><span class="nl">height:</span><span class="w"> </span><span class="il">45</span><span class="vg">px</span><span class="p">;</span>
+<span class="w">    </span><span class="vg">line</span><span class="o">-</span><span class="nl">height:</span><span class="w"> </span><span class="il">45</span><span class="vg">px</span><span class="p">;</span>
+<span class="w">    </span><span class="nl">background:</span><span class="w"> </span><span class="err">#</span><span class="vg">CD235C</span><span class="p">;</span>
+<span class="w">    </span><span class="nl">padding:</span><span class="w"> </span><span class="il">0</span><span class="p">;</span>
+<span class="w">    </span><span class="nl">color:</span><span class="w"> </span><span class="err">#</span><span class="vg">eee</span><span class="p">;</span>
+<span class="w">    </span><span class="vg">font</span><span class="o">-</span><span class="nl">size:</span><span class="w"> </span><span class="il">20</span><span class="vg">px</span><span class="p">;</span>
+<span class="w">    </span><span class="vg">text</span><span class="o">-</span><span class="nl">align:</span><span class="w"> </span><span class="vg">center</span><span class="p">;</span>
+<span class="w">    </span><span class="vg">font</span><span class="o">-</span><span class="nl">weight:</span><span class="w"> </span><span class="vg">bold</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="err">#</span><span class="vg">wrapper</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nl">position:</span><span class="w"> </span><span class="vg">absolute</span><span class="p">;</span>
+<span class="w">    </span><span class="vg">z</span><span class="o">-</span><span class="nl">index:</span><span class="w"> </span><span class="il">1</span><span class="p">;</span>
+<span class="w">    </span><span class="nl">top:</span><span class="w"> </span><span class="il">48</span><span class="vg">px</span><span class="p">;</span><span class="o">/*</span><span class="vg">m</span><span class="o">*/</span>
+<span class="w">    </span><span class="nl">bottom:</span><span class="w"> </span><span class="il">0</span><span class="vg">px</span><span class="p">;</span><span class="w"> </span><span class="o">/*</span><span class="vg">m</span><span class="o">*/</span>
+<span class="w">    </span><span class="nl">left:</span><span class="w"> </span><span class="il">0</span><span class="p">;</span>
+<span class="w">    </span><span class="nl">width:</span><span class="w"> </span><span class="il">100</span><span class="o">%</span><span class="p">;</span>
+<span class="w">    </span><span class="nl">background:</span><span class="w"> </span><span class="err">#</span><span class="vg">ccc</span><span class="p">;</span>
+<span class="w">    </span><span class="nl">overflow:</span><span class="w"> </span><span class="vg">hidden</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+</pre></div>
+<p>同时放到cell的高度</p>
+<div class="highlight"><pre><span class="w">  </span><span class="err">#</span><span class="vg">scroller</span><span class="w"> </span><span class="vg">li</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nl">padding:</span><span class="w"> </span><span class="il">0</span><span class="w"> </span><span class="il">10</span><span class="vg">px</span><span class="p">;</span>
+<span class="w">    </span><span class="nl">height:</span><span class="w"> </span><span class="il">100</span><span class="vg">px</span><span class="p">;</span><span class="w"> </span><span class="o">/*</span><span class="vg">m</span><span class="w"> </span><span class="vg">from</span><span class="w"> </span><span class="il">44</span><span class="w"> </span><span class="vg">to</span><span class="w"> </span><span class="il">100</span><span class="o">*/</span>
+<span class="w">    </span><span class="vg">line</span><span class="o">-</span><span class="nl">height:</span><span class="w"> </span><span class="il">40</span><span class="vg">px</span><span class="p">;</span>
+<span class="w">    </span><span class="vg">border</span><span class="o">-</span><span class="nl">bottom:</span><span class="w"> </span><span class="il">1</span><span class="vg">px</span><span class="w"> </span><span class="vg">solid</span><span class="w"> </span><span class="err">#</span><span class="vg">ccc</span><span class="p">;</span>
+<span class="w">    </span><span class="vg">border</span><span class="o">-</span><span class="nl">top:</span><span class="w"> </span><span class="il">1</span><span class="vg">px</span><span class="w"> </span><span class="vg">solid</span><span class="w"> </span><span class="err">#</span><span class="vg">fff</span><span class="p">;</span>
+<span class="w">    </span><span class="vg">background</span><span class="o">-</span><span class="nl">color:</span><span class="w"> </span><span class="err">#</span><span class="vg">fafafa</span><span class="p">;</span>
+<span class="w">    </span><span class="vg">font</span><span class="o">-</span><span class="nl">size:</span><span class="w"> </span><span class="il">14</span><span class="vg">px</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+</pre></div>
+<p>下面开始集成点击进入按钮页面</p>
+
+<p>看一下按钮是如何定义和响应的</p>
+<div class="highlight"><pre><span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">&quot;weui_cell js_cell&quot;</span> <span class="na">href=</span><span class="s">&quot;javascript:;&quot;</span> <span class="na">data-id=</span><span class="s">&quot;button&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&quot;weui_cell_hd&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">&quot;/images/icon_nav_button.png&quot;</span> <span class="na">class=</span><span class="s">&quot;icon_nav&quot;</span> <span class="na">alt=</span><span class="s">&quot;&quot;</span><span class="nt">&gt;&lt;/span&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;weui_cell_bd weui_cell_primary&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;p&gt;</span>Button<span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;weui_cell_ft&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/a&gt;</span>
+</pre></div>
+<p>放到第一个li里</p>
+
+<p><img src="img/4.png" alt=""></p>
+
+<p>此时不能点击，nnd，这是怎么回事儿呢？</p>
+
+<p>各位想想之前讲iscroll的时候，是不是有点注意事项啊？</p>
+
+<p>比如你在#wrapper内部放a标签或button的click事件是绑定补上的。需要配置</p>
+<div class="highlight"><pre><span class="vg">myScroll</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="vg">new</span><span class="w"> </span><span class="vg">IScroll</span><span class="p">(</span><span class="c1">&#39;#wrapper&#39;, { </span>
+<span class="w">  </span><span class="nl">mouseWheel:</span><span class="w"> </span><span class="vg">true</span><span class="p">,</span>
+<span class="w">  </span><span class="nl">click:</span><span class="w"> </span><span class="vg">true</span>
+<span class="p">});</span>
+</pre></div>
+<p>翻查一下代码，确实没加click（其实是为了演示故意的）</p>
+
+<p>加上，再次预览</p>
+
+<p><img src="5.png" alt=""></p>
+
+<p>很明显是z-index问题，翻查iscroll2.css里发现#wrapper是z-index:1</p>
+
+<p>而.page没有设置,简单改一下即可</p>
+<div class="highlight"><pre><span class="nt">&lt;style&gt;</span>
+  .page{
+    z-index: 2;
+  }
+<span class="nt">&lt;/style&gt;</span>
+</pre></div>
+<p><img src="img/weui+iscroll.gif" alt=""></p>
+
+<h3>是时候去加上weui其他效果了</h3>
+
+<ul>
+<li>li上增加按钮</li>
+<li>把对应模板引入</li>
+</ul>
+
+<p>helloworld-weui2+iscroll2.html</p>
+
+<h2>gulp</h2>
 
 <ul>
 <li>web server</li>
