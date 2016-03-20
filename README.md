@@ -328,7 +328,9 @@ weui的优点
 我们先把helloiscroll里的内容放进去
 
 
+```
 <h1 class="page_title">WeUI</h1>
+```
 
 去掉 class="page_title"
 
@@ -358,45 +360,45 @@ weui的优点
 修改iscroll2.css
 
 ```
-#header {/*add*/
-	position: absolute;
-	z-index: 2;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 45px;
-	line-height: 45px;
-	background: #CD235C;
-	padding: 0;
-	color: #eee;
-	font-size: 20px;
-	text-align: center;
-	font-weight: bold;
-}
-#wrapper {
-	position: absolute;
-	z-index: 1;
-	top: 48px;/*m*/
-	bottom: 0px; /*m*/
-	left: 0;
-	width: 100%;
-	background: #ccc;
-	overflow: hidden;
-}
-```
+  #header {/*add*/
+  	position: absolute;
+  	z-index: 2;
+  	top: 0;
+  	left: 0;
+  	width: 100%;
+  	height: 45px;
+  	line-height: 45px;
+  	background: #CD235C;
+  	padding: 0;
+  	color: #eee;
+  	font-size: 20px;
+  	text-align: center;
+  	font-weight: bold;
+  }
+  #wrapper {
+  	position: absolute;
+  	z-index: 1;
+  	top: 48px;/*m*/
+  	bottom: 0px; /*m*/
+  	left: 0;
+  	width: 100%;
+  	background: #ccc;
+  	overflow: hidden;
+  }
+  ```
 
-同时放到cell的高度
+  同时放到cell的高度
 
-```
-#scroller li {
-	padding: 0 10px;
-	height: 100px; /*m from 44 to 100*/
-	line-height: 40px;
-	border-bottom: 1px solid #ccc;
-	border-top: 1px solid #fff;
-	background-color: #fafafa;
-	font-size: 14px;
-}
+  ```
+  #scroller li {
+  	padding: 0 10px;
+  	height: 100px; /*m from 44 to 100*/
+  	line-height: 40px;
+  	border-bottom: 1px solid #ccc;
+  	border-top: 1px solid #fff;
+  	background-color: #fafafa;
+  	font-size: 14px;
+  }
 ```
 
 下面开始集成点击进入按钮页面
